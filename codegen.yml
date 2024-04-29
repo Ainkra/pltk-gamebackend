@@ -1,0 +1,12 @@
+overwrite: true
+schema: 
+  - "./interfaces/schema_game.graphql"
+documents: null
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"

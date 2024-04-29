@@ -1,0 +1,317 @@
+import { CapacityType } from "../../../generated/graphql";
+
+export const capacityLevelMap: Record<string, number> = {
+    // GT
+    'gt_top_speed_level_2': 2,
+    'gt_top_speed_level_3': 3,
+    'gt_top_speed_level_4': 4,
+    'gt_top_speed_level_5': 5,
+    'gt_top_speed_level_6': 6,
+    'gt_top_speed_level_1_to_6': 6,
+    'gt_top_speed_level_2_to_6': 6,
+    'gt_top_speed_level_3_to_6': 6,
+    'gt_top_speed_level_4_to_6': 6,
+    'gt_acceleration_level_2': 2,
+    'gt_acceleration_level_3': 3,
+    'gt_acceleration_level_4': 4,
+    'gt_acceleration_level_5': 5,
+    'gt_acceleration_level_6': 6,
+    'gt_acceleration_level_1_to_6': 6,
+    'gt_acceleration_level_2_to_6': 6,
+    'gt_acceleration_level_3_to_6': 6,
+    'gt_acceleration_level_4_to_6': 6,
+    'gt_shielding_level_2': 2,
+    'gt_shielding_level_3': 3,
+    'gt_shielding_level_4': 4,
+    'gt_shielding_level_5': 5,
+    'gt_shielding_level_6': 6,
+    'gt_shielding_level_1_to_6': 6,
+    'gt_shielding_level_2_to_6': 6,
+    'gt_shielding_level_3_to_6': 6,
+    'gt_shielding_level_4_to_6': 6,
+    'gt_nitro_level_2': 2,
+    'gt_nitro_level_3': 3,
+    'gt_nitro_level_4': 4,
+    'gt_nitro_level_5': 5,
+    'gt_nitro_level_6': 6,
+    'gt_nitro_level_1_to_6': 6,
+    'gt_nitro_level_2_to_6': 6,
+    'gt_nitro_level_3_to_6': 6,
+    'gt_nitro_level_4_to_6': 6,
+    // Truckster
+    'truckster_top_speed_level_2': 2,
+    'truckster_top_speed_level_3': 3,
+    'truckster_top_speed_level_4': 4,
+    'truckster_top_speed_level_5': 5,
+    'truckster_top_speed_level_6': 6,
+    'truckster_top_speed_level_1_to_6': 6,
+    'truckster_top_speed_level_2_to_6': 6,
+    'truckster_top_speed_level_3_to_6': 6,
+    'truckster_top_speed_level_4_to_6': 6,
+    'truckster_acceleration_level_2': 2,
+    'truckster_acceleration_level_3': 3,
+    'truckster_acceleration_level_4': 4,
+    'truckster_acceleration_level_5': 5,
+    'truckster_acceleration_level_6': 6,
+    'truckster_acceleration_level_1_to_6': 6,
+    'truckster_acceleration_level_2_to_6': 6,
+    'truckster_acceleration_level_3_to_6': 6,
+    'truckster_acceleration_level_4_to_6': 6,
+    'truckster_shielding_level_2': 2,
+    'truckster_shielding_level_3': 3,
+    'truckster_shielding_level_4': 4,
+    'truckster_shielding_level_5': 5,
+    'truckster_shielding_level_6': 6,
+    'truckster_shielding_level_1_to_6': 6,
+    'truckster_shielding_level_2_to_6': 6,
+    'truckster_shielding_level_3_to_6': 6,
+    'truckster_shielding_level_4_to_6': 6,
+    // speeder
+    'speeder_top_speed_level_2': 2,
+    'speeder_top_speed_level_3': 3,
+    'speeder_top_speed_level_4': 4,
+    'speeder_top_speed_level_5': 5,
+    'speeder_top_speed_level_6': 6,
+    'speeder_top_speed_level_1_to_6': 6,
+    'speeder_top_speed_level_2_to_6': 6,
+    'speeder_top_speed_level_3_to_6': 6,
+    'speeder_top_speed_level_4_to_6': 6,
+    'speeder_acceleration_level_2': 2,
+    'speeder_acceleration_level_3': 3,
+    'speeder_acceleration_level_4': 4,
+    'speeder_acceleration_level_5': 5,
+    'speeder_acceleration_level_6': 6,
+    'speeder_acceleration_level_1_to_6': 6,
+    'speeder_acceleration_level_2_to_6': 6,
+    'speeder_acceleration_level_3_to_6': 6,
+    'speeder_acceleration_level_4_to_6': 6,
+    'speeder_shielding_level_2': 2,
+    'speeder_shielding_level_3': 3,
+    'speeder_shielding_level_4': 4,
+    'speeder_shielding_level_5': 5,
+    'speeder_shielding_level_6': 6,
+    'speeder_shielding_level_1_to_6': 6,
+    'speeder_shielding_level_2_to_6': 6,
+    'speeder_shielding_level_3_to_6': 6,
+    'speeder_shielding_level_4_to_6': 6,
+    'speeder_nitro_level_2': 2,
+    'speeder_nitro_level_3': 3,
+    'speeder_nitro_level_4': 4,
+    'speeder_nitro_level_5': 5,
+    'speeder_nitro_level_6': 6,
+    'speeder_nitro_level_1_to_6': 6,
+    'speeder_nitro_level_2_to_6': 6,
+    'speeder_nitro_level_3_to_6': 6,
+    'speeder_nitro_level_4_to_6': 6,
+    // Formula V
+    'formula_v_top_speed_level_2': 2,
+    'formula_v_top_speed_level_3': 3,
+    'formula_v_top_speed_level_4': 4,
+    'formula_v_top_speed_level_5': 5,
+    'formula_v_top_speed_level_6': 6,
+    'formula_v_top_speed_level_1_to_6': 6,
+    'formula_v_top_speed_level_2_to_6': 6,
+    'formula_v_top_speed_level_3_to_6': 6,
+    'formula_v_top_speed_level_4_to_6': 6,
+    'formula_v_acceleration_level_2': 2,
+    'formula_v_acceleration_level_3': 3,
+    'formula_v_acceleration_level_4': 4,
+    'formula_v_acceleration_level_5': 5,
+    'formula_v_acceleration_level_6': 6,
+    'formula_v_acceleration_level_1_to_6': 6,
+    'formula_v_acceleration_level_2_to_6': 6,
+    'formula_v_acceleration_level_3_to_6': 6,
+    'formula_v_acceleration_level_4_to_6': 6,
+    'formula_v_shielding_level_2': 2,
+    'formula_v_shielding_level_3': 3,
+    'formula_v_shielding_level_4': 4,
+    'formula_v_shielding_level_5': 5,
+    'formula_v_shielding_level_6': 6,
+    'formula_v_shielding_level_1_to_6': 6,
+    'formula_v_shielding_level_2_to_6': 6,
+    'formula_v_shielding_level_3_to_6': 6,
+    'formula_v_shielding_level_4_to_6': 6,
+    'formula_v_nitro_level_2': 2,
+    'formula_v_nitro_level_3': 3,
+    'formula_v_nitro_level_4': 4,
+    'formula_v_nitro_level_5': 5,
+    'formula_v_nitro_level_6': 6,
+    'formula_v_nitro_level_1_to_6': 6,
+    'formula_v_nitro_level_2_to_6': 6,
+    'formula_v_nitro_level_3_to_6': 6,
+    'formula_v_nitro_level_4_to_6': 6,
+};
+
+export const capacityNameMap: Record<string, CapacityType> = {
+    'top_speed': CapacityType.TopSpeed,
+    'acceleration': CapacityType.Acceleration,
+    'shielding': CapacityType.Shielding,
+    'nitro': CapacityType.Nitro
+};
+
+export const itemTypes: { [key: string]: CapacityType } = {
+    'Acceleration_2': CapacityType.Acceleration,
+    'Acceleration_3': CapacityType.Acceleration,
+    'Acceleration_4': CapacityType.Acceleration,
+    'Acceleration_5': CapacityType.Acceleration,
+    'Acceleration_6': CapacityType.Acceleration,
+    'AccelerationAll': CapacityType.Acceleration,
+    'Topspeed_2': CapacityType.TopSpeed,
+    'Topspeed_3': CapacityType.TopSpeed,
+    'Topspeed_4': CapacityType.TopSpeed,
+    'Topspeed_5': CapacityType.TopSpeed,
+    'Topspeed_6': CapacityType.TopSpeed,
+    'TopspeedAll': CapacityType.TopSpeed,
+    'Shielding_2': CapacityType.Shielding,
+    'Shielding_3': CapacityType.Shielding,
+    'Shielding_4': CapacityType.Shielding,
+    'Shielding_5': CapacityType.Shielding,
+    'Shielding_6': CapacityType.Shielding,
+    'ShieldingAll': CapacityType.Shielding,
+    'Nitro_2': CapacityType.Nitro,
+    'Nitro_3': CapacityType.Nitro,
+    'Nitro_4': CapacityType.Nitro,
+    'Nitro_5': CapacityType.Nitro,
+    'Nitro_6': CapacityType.Nitro,
+    'NitroAll': CapacityType.Nitro,
+};
+
+// // GT
+// 'gt_top_speed_level_2'
+// 'gt_top_speed_level_3'
+// 'gt_top_speed_level_4'
+// 'gt_top_speed_level_5'
+// 'gt_top_speed_level_6'
+// 'gt_top_speed_level_1_to_6'
+// 'gt_top_speed_level_2_to_6'
+// 'gt_top_speed_level_3_to_6'
+// 'gt_top_speed_level_4_to_6'
+// 'gt_acceleration_level_2'
+// 'gt_acceleration_level_3'
+// 'gt_acceleration_level_4'
+// 'gt_acceleration_level_5'
+// 'gt_acceleration_level_6'
+// 'gt_acceleration_level_1_to_6'
+// 'gt_acceleration_level_2_to_6'
+// 'gt_acceleration_level_3_to_6'
+// 'gt_acceleration_level_4_to_6'
+// 'gt_shielding_level_2'
+// 'gt_shielding_level_3'
+// 'gt_shielding_level_4'
+// 'gt_shielding_level_5'
+// 'gt_shielding_level_6'
+// 'gt_shielding_level_1_to_6'
+// 'gt_shielding_level_2_to_6'
+// 'gt_shielding_level_3_to_6'
+// 'gt_shielding_level_4_to_6'
+// 'gt_nitro_level_2'
+// 'gt_nitro_level_3'
+// 'gt_nitro_level_4'
+// 'gt_nitro_level_5'
+// 'gt_nitro_level_6'
+// 'gt_nitro_level_1_to_6'
+// 'gt_nitro_level_2_to_6'
+// 'gt_nitro_level_3_to_6'
+// 'gt_nitro_level_4_to_6'
+// // Truck
+// 'truckster_top_speed_level_2'
+// 'truckster_top_speed_level_3'
+// 'truckster_top_speed_level_4'
+// 'truckster_top_speed_level_5'
+// 'truckster_top_speed_level_6'
+// 'truckster_top_speed_level_1_to_6'
+// 'truckster_top_speed_level_2_to_6'
+// 'truckster_top_speed_level_3_to_6'
+// 'truckster_top_speed_level_4_to_6'
+// 'truckster_acceleration_level_2'
+// 'truckster_acceleration_level_3'
+// 'truckster_acceleration_level_4'
+// 'truckster_acceleration_level_5'
+// 'truckster_acceleration_level_6'
+// 'truckster_acceleration_level_1_to_6'
+// 'truckster_acceleration_level_2_to_6'
+// 'truckster_acceleration_level_3_to_6'
+// 'truckster_acceleration_level_4_to_6'
+// 'truckster_shielding_level_2'
+// 'truckster_shielding_level_3'
+// 'truckster_shielding_level_4'
+// 'truckster_shielding_level_5'
+// 'truckster_shielding_level_6'
+// 'truckster_shielding_level_1_to_6'
+// 'truckster_shielding_level_2_to_6'
+// 'truckster_shielding_level_3_to_6'
+// 'truckster_shielding_level_4_to_6'
+// // spe
+// 'speeder_top_speed_level_2'
+// 'speeder_top_speed_level_3'
+// 'speeder_top_speed_level_4'
+// 'speeder_top_speed_level_5'
+// 'speeder_top_speed_level_6'
+// 'speeder_top_speed_level_1_to_6'
+// 'speeder_top_speed_level_2_to_6'
+// 'speeder_top_speed_level_3_to_6'
+// 'speeder_top_speed_level_4_to_6'
+// 'speeder_acceleration_level_2'
+// 'speeder_acceleration_level_3'
+// 'speeder_acceleration_level_4'
+// 'speeder_acceleration_level_5'
+// 'speeder_acceleration_level_6'
+// 'speeder_acceleration_level_1_to_6'
+// 'speeder_acceleration_level_2_to_6'
+// 'speeder_acceleration_level_3_to_6'
+// 'speeder_acceleration_level_4_to_6'
+// 'speeder_shielding_level_2'
+// 'speeder_shielding_level_3'
+// 'speeder_shielding_level_4'
+// 'speeder_shielding_level_5'
+// 'speeder_shielding_level_6'
+// 'speeder_shielding_level_1_to_6'
+// 'speeder_shielding_level_2_to_6'
+// 'speeder_shielding_level_3_to_6'
+// 'speeder_shielding_level_4_to_6'
+// 'speeder_nitro_level_2'
+// 'speeder_nitro_level_3'
+// 'speeder_nitro_level_4'
+// 'speeder_nitro_level_5'
+// 'speeder_nitro_level_6'
+// 'speeder_nitro_level_1_to_6'
+// 'speeder_nitro_level_2_to_6'
+// 'speeder_nitro_level_3_to_6'
+// 'speeder_nitro_level_4_to_6'
+// // Formu
+// 'formula_v_top_speed_level_2'
+// 'formula_v_top_speed_level_3'
+// 'formula_v_top_speed_level_4'
+// 'formula_v_top_speed_level_5'
+// 'formula_v_top_speed_level_6'
+// 'formula_v_top_speed_level_1_to_6'
+// 'formula_v_top_speed_level_2_to_6'
+// 'formula_v_top_speed_level_3_to_6'
+// 'formula_v_top_speed_level_4_to_6'
+// 'formula_v_acceleration_level_2'
+// 'formula_v_acceleration_level_3'
+// 'formula_v_acceleration_level_4'
+// 'formula_v_acceleration_level_5'
+// 'formula_v_acceleration_level_6'
+// 'formula_v_acceleration_level_1_to_6'
+// 'formula_v_acceleration_level_2_to_6'
+// 'formula_v_acceleration_level_3_to_6'
+// 'formula_v_acceleration_level_4_to_6'
+// 'formula_v_shielding_level_2'
+// 'formula_v_shielding_level_3'
+// 'formula_v_shielding_level_4'
+// 'formula_v_shielding_level_5'
+// 'formula_v_shielding_level_6'
+// 'formula_v_shielding_level_1_to_6'
+// 'formula_v_shielding_level_2_to_6'
+// 'formula_v_shielding_level_3_to_6'
+// 'formula_v_shielding_level_4_to_6'
+// 'formula_v_nitro_level_2'
+// 'formula_v_nitro_level_3'
+// 'formula_v_nitro_level_4'
+// 'formula_v_nitro_level_5'
+// 'formula_v_nitro_level_6'
+// 'formula_v_nitro_level_1_to_6'
+// 'formula_v_nitro_level_2_to_6'
+// 'formula_v_nitro_level_3_to_6'
+// 'formula_v_nitro_level_4_to_6'
