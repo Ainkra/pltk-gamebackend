@@ -1,8 +1,3 @@
-# Game backend - Vrombr 🏎️
-
-This project is the backend side of the game Vrombr who's permit
-to gamify the game. This project work under dependencies below.
-
 ## Dependencies
 - NodeJS v16.0.0
 - Prisma v4.16.2
