@@ -1,0 +1,135 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum carType {
+  GT
+  FORMULAV
+  TRUCKSTER
+  SPEEDER
+}
+
+enum CapacityType {
+  TOP_SPEED
+  ACCELERATION
+  SHIELDING
+  NITRO
+  RAM
+  INVINCIBLE
+}
+
+enum SettingType {
+  AERODYNAMICS
+  CHASSIS
+  SUSPENSION
+}
+
+model Player {
+  id                   Int                    @id @default(autoincrement())
+  playerId             String                 @unique @db.Uuid
+  userId               String                 @unique @db.Uuid
+  playerName           String                 @unique
+  country              String
+  inventory_id         Int                    @unique
+  inventory            Inventory              @relation(fields: [inventory_id], references: [id])
+  userStatsId          Int                    @unique
+  userStatistics       UserStatistics         @relation(fields: [userStatsId], references: [stat_id])
+  carSettings          CarSettings[]
+  carCapacities        CarCapacities[]
+  raceHistory          RaceHistory[]
+  created_at           DateTime               @default(now())
+  updated_at           DateTime               @default(now()) @updatedAt
+}
+
+model RaceHistory {
+  raceHistory_id Int      @id @default(autoincrement())
+  playerUuid     String   @db.Uuid
+  player         Player   @relation(fields: [playerUuid], references: [playerId])
+  track          String
+  bestLap        Int
+  bestTime       Int
+  raceMode       String
+  capacity       Boolean
+  created_at     DateTime @default(now())
+  updated_at     DateTime @default(now()) @updatedAt
+}
+
+model Inventory {
+  id               Int      @id @default(autoincrement())
+  player           Player?
+  soft_currency    Int      @default(0)
+  hard_currency    Int      @default(0)
+  energy           Int      @default(0)
+  upgrade_kit      Int      @default(0)
+  meca_kit         Int      @default(0)
+  repair_kit       Int      @default(0)
+  reputation_level Int      @default(0)
+  damage_pack      Int      @default(0)
+  created_at       DateTime @default(now())
+  updated_at       DateTime @default(now()) @updatedAt
+}
+
+model UserStatistics {
+  stat_id          Int      @id @default(autoincrement())
+  player           Player?
+  arenaModeCount   Int      @default(0)
+  softCurrencyUsed Int      @default(0)
+  hardCurrencyUsed Int      @default(0)
+  energyUsed       Int      @default(0)
+  timeSpentInRace  DateTime
+  paymentRevenue   Int      @default(0)
+  freeCreditCount  Int      @default(0)
+  usedCarType      carType
+}
+
+model CarSettings {
+  id         Int       @id @default(autoincrement())
+  carType    carType
+  setting    Setting[]
+  player     Player    @relation(fields: [playerUuid], references: [playerId])
+  playerUuid String    @db.Uuid
+  created_at DateTime  @default(now())
+  updated_at DateTime  @default(now()) @updatedAt
+}
+
+model Setting {
+  id           Int         @id @default(autoincrement())
+  carSettings  CarSettings @relation(fields: [carSettingId], references: [id])
+  carSettingId Int
+  settingName  String
+  upgradeLevel Int         @default(0)
+  preference   Int         @default(0)
+  created_at   DateTime    @default(now())
+  updated_at   DateTime    @default(now()) @updatedAt
+}
+
+model CarCapacities {
+  id            Int        @id @default(autoincrement())
+  carType       carType
+  capacity      Capacity[]
+  fullyUpgraded Boolean
+  player        Player     @relation(fields: [playerUuid], references: [playerId])
+  playerUuid    String     @db.Uuid
+  created_at    DateTime   @default(now())
+  updated_at    DateTime   @default(now()) @updatedAt
+}
+
+model Capacity {
+  id            Int           @id @default(autoincrement())
+  carCapacities CarCapacities @relation(fields: [carCapacityId], references: [id])
+  carCapacityId Int
+  capacityName  String
+  upgradeLevel  Int
+  levelMax      Int
+  value         Float
+  created_at    DateTime      @default(now())
+  updated_at    DateTime      @default(now()) @updatedAt
+}
