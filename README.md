@@ -1,3 +1,10 @@
+> [!IMPORTANT]
+> # Project Status: Not Maintained
+> This project is not maintained and serves solely as a showcase of my skills.
+> Please note that this project is deliberately incomplete and is intended to give recruiters a first glimpse of my capabilities. It includes various aspects of my learning journey, demonstrating my understanding and application of different technologies.
+> 
+> Feel free to explore, but be aware that there might be security issues and deprecated features, as the project is no longer actively maintained. If you have any questions or need further information about my skills and experience, don't hesitate to reach out.
+
 ## Dependencies
 - NodeJS v16.0.0
 - Prisma v4.16.2
